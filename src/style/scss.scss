@@ -1,0 +1,328 @@
+// color
+$colorTitle: #091133;
+$colorHeaderText: #505F98;
+$colorButton: #FFF;
+$colorMainText: #6F7CB2;
+$colorIconText: #5D6970;
+$colorFooter: #929ECC;
+
+// padding
+$paddingButton: 0 1.5rem;
+
+// margin-bottom
+$marginBottomTitle: 16px;
+
+// font-size and line-height
+$fontSizeText: 16px;
+$lineHeightText: 26px;
+
+$fontSizeTh2: 36px;
+$lineHeighth2: 48px;
+
+$fontSizeIconTitle: 16px;
+$lineHeightIconTitle: 26px;
+
+$fontSizeIconText: 12px;
+$lineHeightIconText: 18px;
+
+$fontSizeButtonTitle: 16px;
+$lineHeightButtonTitle: 26px;
+
+$fontSizeButtonMain: 14px;
+$lineHeightButtonMain: 24px;
+
+
+// mixin 
+
+// font-size color line-height
+@mixin fontz($f, $c, $lh) {
+    font-size: $f;
+    color: $c;
+    line-height: $lh;
+}
+
+// Placeholder Selectors
+
+// button
+%backgroundButton{
+    background: #111B47;
+    color: $colorButton;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+
+
+
+
+body {
+    background: #F0F0F0;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 1220px;
+    margin: 10px auto;
+}
+
+.header {
+    margin-bottom: 386px;
+    .header__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .header__menu {
+            .menu {
+                display: flex;
+                justify-content: space-between;
+                padding: 0;
+                .menu__list {
+                    .menu__link {
+                        @include fontz (14px, $colorHeaderText, 24px)
+                    }
+                }
+                .menu__list + .menu__list {
+                    margin-left: 60px;
+                }
+            }
+        }
+        button {
+            @extend %backgroundButton;
+            @include fontz (12px, $colorButton, 18px);
+            padding: $paddingButton;
+        }
+    }
+    .section__title {
+        display: flex;
+        align-items: center;
+        .section__title-content {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            width: 34rem;
+            .section__title-caption {
+                @include fontz (50px, $colorTitle, 66px);
+                margin: 253px 0 20px;
+                letter-spacing: 1px;
+            }
+            .section__title-text {
+                @include fontz(18px, $colorMainText, 30px);
+                margin-bottom: 69px;
+            }
+            .section__title-buttons {
+                display: flex;
+                align-items: center;
+                .section__title-button{
+                    @extend %backgroundButton;
+                    @include fontz($fontSizeButtonTitle, $colorButton, $lineHeightButtonTitle);
+                    padding: $paddingButton;
+                }   
+                .section__title-button-white {
+                    background-color: #E7ECFF;
+                    border: 2px solid rgba(9, 17, 51, 1);
+                    cursor: pointer;
+                    margin-left: 30px;
+                    border-radius: 2px;
+                    padding: $paddingButton;
+                    @include fontz($fontSizeButtonTitle, $colorTitle, $lineHeightButtonTitle);
+                }
+            }
+        }
+    }
+}
+
+// header end
+
+// main  
+
+
+// section__top
+
+.section__top {
+    display: flex;
+    align-items: center;
+    margin: 160px 0 230px;
+    .section__top-content {
+        width: 50%;
+        .section__top-title {
+            margin-bottom: $marginBottomTitle;
+            @include fontz($fontSizeTh2, $colorTitle, $lineHeighth2)
+        }
+        .section__top-text {
+            margin-bottom: 80px;
+            @include fontz($fontSizeText, $colorMainText, $lineHeightText)
+        }
+        .section__top-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .section__top-ff {
+                width: 15rem;
+                .section__top-ff-title {
+                    margin: 14px 0 6px;
+                    @include fontz($fontSizeIconTitle, $colorTitle, $lineHeightIconTitle)
+                }
+                .section__top-ff-text {
+                    @include fontz($fontSizeIconText, $colorIconText, $lineHeightIconText)
+                }
+            }
+        }
+    }
+}
+
+// section__mild
+
+.section__mild {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 160px;
+    .section__mild-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .section__mild-main {
+            width: 50%;
+            .section__mild-title {
+                margin-bottom: $marginBottomTitle;
+                @include fontz($fontSizeTh2, $colorTitle, $lineHeighth2)
+            }
+            .section__mild-text {
+                @include fontz($fontSizeText, $colorMainText, $lineHeightText)
+            }
+            .section__mild-btn {
+                margin-top: 40px;
+                @extend %backgroundButton;
+                @include fontz($fontSizeButtonMain, $colorButton, $lineHeightButtonMain);
+                padding: $paddingButton;
+            }
+        }
+    }
+    .section__mild-content + .section__mild-content {
+        margin-top: 225px;
+    }
+}
+
+// section__bottom 
+
+.section__bottom {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    .section__bottom-title {
+        margin-bottom: $marginBottomTitle;
+        @include fontz($fontSizeTh2, $colorTitle, $lineHeighth2)
+    }
+    .section__bottom-text {
+        text-align: center;
+        width: 34rem;
+        margin-bottom: 36px;
+        @include fontz($fontSizeText, $colorMainText, $lineHeightText)
+    }
+    .section__bottom-money {
+        margin-bottom: 0;
+        @include fontz(50px, #222F65, 66px)
+    }
+    .section__bottom-money-text {
+        margin: 0 0 60px;
+        @include fontz($fontSizeText, #37447E, $lineHeightText)
+    }
+    .section__bottom-button-text {
+        margin-bottom: 13px;
+        @include fontz(14px, $colorIconText, 24px)
+    }
+    .section__bottom-btn {
+        margin-bottom: 170px;
+        padding: $paddingButton;
+        @extend %backgroundButton;
+        @include fontz($fontSizeButtonMain, $colorButton, $lineHeightButtonMain)
+    }
+}
+
+// footer
+
+// section__footer
+
+
+.footer {
+    background-color: #E7ECFF;
+    .section__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 64px 0 40px;
+        .section__footer-link {
+            @include fontz(14px, #939EA4, 24px)
+        }
+        button {
+            @extend %backgroundButton;
+            @include fontz(12px, $colorButton, 18px);
+            padding: $paddingButton;
+        }
+    }
+    hr {
+        background: rgba(205, 209, 212, 1);
+    }
+}
+
+
+
+//  section__footer-links
+
+.section__footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .section__footer-menu {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        .section__footer-list {
+            .section__footer-link {
+                @include fontz(14px, $colorFooter, 24px)
+            }
+        }
+        .section__footer-list + .section__footer-list {
+            margin-left: 60px;
+        }
+    }
+    .section__footer-social {
+        a + a {
+            margin-left: 34px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
